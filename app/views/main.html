@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <h1>'Allo, 'Allo!</h1>
+  <p class="lead">
+    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    Always a pleasure scaffolding your apps.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<div class="row marketing">
+
+<form ng-submit="postBlogs()">
+  title : <input type="text" ng-model="blog.title" /><br/>
+  content : <textarea ng-model="blog.content" /><br/>
+  post_by : <input type="text" ng-model="blog.post_by" /><br/>
+  <button type="submit">Submit</button>
+</form>
+
+<div ng-show="error">{{error}}</div>
+
+Search : <input type="text" ng-model="search.$" />
+<ul>
+  <li ng-repeat="blog in blogs | filter:search">{{blog}}</li>
+</ul>
+
+  <h4>HTML5 Boilerplate</h4>
+  <p>
+    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+  </p>
+
+  <h4>Angular</h4>
+  <p>
+    AngularJS is a toolset for building the framework most suited to your application development.
+  </p>
+
+  <h4>Karma</h4>
+  <p>Spectacular Test Runner for JavaScript.</p>
+</div>
+
+curl -X POST http://localhost:9001/blogs/1/comment -H 'Content-Type: application/json' -d '{"message":"test", "comment_by":"bright"}'
+
+curl -X POST http://localhost:9001/blogs -H 'Content-Type: application/json' -d '{"title":"angular-service", "content":"http-get", "post_by":"bright", "comments":[]}'
+
